@@ -2,8 +2,9 @@ package fr.crarax.apblame.managers;
 
 import fr.crarax.apblame.APBlame;
 import me.clip.placeholderapi.PlaceholderAPI;
-import org.bukkit.Bukkit;
+import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -76,28 +77,28 @@ public class MessageManager {
     }
 
     /**
-     * Retrieves a message by its key, translating {@code &} color codes.
-     * The prefix is automatically prepended.
+     * Retrieves a message by its key as an Adventure Component.
+     * The prefix is automatically prepended and {@code &} color codes are parsed.
      *
      * @param key the message key (e.g. "reload.success")
-     * @return the formatted message with color codes translated, or the raw key if not found
+     * @return the formatted Component, or the raw key as Component if not found
      */
-    public String getMessage(String key) {
+    public Component getMessage(String key) {
         String prefix = cache.getOrDefault("prefix", "");
         String message = cache.getOrDefault(key, key);
-        return translateColors(prefix + message);
+        return LegacyComponentSerializer.legacyAmpersand().deserialize(prefix + message);
     }
 
     /**
-     * Retrieves a message by its key, replacing placeholders and translating {@code &} color codes.
-     * The prefix is automatically prepended.
+     * Retrieves a message by its key as an Adventure Component, replacing placeholders.
+     * The prefix is automatically prepended and {@code &} color codes are parsed.
      *
      * @param key          the message key (e.g. "reload.success")
      * @param placeholders a map of placeholder names to their replacement values
      *                     (e.g. {@code {player}} mapped to a player name)
-     * @return the formatted message with placeholders replaced and color codes translated
+     * @return the formatted Component with placeholders replaced
      */
-    public String getMessage(String key, Map<String, String> placeholders) {
+    public Component getMessage(String key, Map<String, String> placeholders) {
         String prefix = cache.getOrDefault("prefix", "");
         String message = cache.getOrDefault(key, key);
         String result = prefix + message;
@@ -106,7 +107,7 @@ public class MessageManager {
             result = result.replace(entry.getKey(), entry.getValue());
         }
 
-        return translateColors(result);
+        return LegacyComponentSerializer.legacyAmpersand().deserialize(result);
     }
 
     /**
@@ -124,15 +125,6 @@ public class MessageManager {
             return PlaceholderAPI.setPlaceholders(player, message);
         }
         return message;
-    }
-
-    /**
-     * Translates {@code &} color codes to section signs using Adventure's legacy serializer.
-     */
-    private String translateColors(String message) {
-        return LegacyComponentSerializer.legacyAmpersand().serialize(
-                LegacyComponentSerializer.legacyAmpersand().deserialize(message)
-        );
     }
 
     /**

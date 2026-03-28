@@ -6,6 +6,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.atomic.AtomicInteger;
 import me.clip.placeholderapi.PlaceholderAPI;
+import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -119,7 +120,7 @@ public class BlameManager {
             .incrementAndGet();
 
         // Send the message only to the trigger player
-        trigger.sendMessage(message);
+        trigger.sendMessage(LegacyComponentSerializer.legacySection().deserialize(message));
 
         // Update cooldown
         cooldowns.put(triggerUuid, System.currentTimeMillis());
