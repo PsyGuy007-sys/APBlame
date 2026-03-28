@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/PsyGuy007-sys/APBlame/releases"><img src="https://img.shields.io/github/v/release/PsyGuy007-sys/APBlame?style=flat-square" alt="Release"></a>
+  <a href="https://github.com/PsyGuy007-sys/APBlame/releases"><img src="https://img.shields.io/github/v/tag/PsyGuy007-sys/APBlame?label=release&style=flat-square&color=brightgreen" alt="Release"></a>
   <img src="https://img.shields.io/badge/API-Paper%201.21+-blue?style=flat-square" alt="Paper 1.21+">
   <img src="https://img.shields.io/badge/Java-21+-orange?style=flat-square" alt="Java 21+">
   <img src="https://img.shields.io/badge/PlaceholderAPI-supported-green?style=flat-square" alt="PlaceholderAPI">
