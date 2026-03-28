@@ -1,0 +1,27 @@
+name: APBlame
+version: ${project.version}
+main: fr.crarax.apblame.APBlame
+api-version: '1.21'
+description: Randomly blames a nearby player when something happens
+author: Crarax
+softdepend: ["PlaceholderAPI"]
+
+commands:
+  apblame:
+    description: APBlame plugin commands
+    usage: /apblame <reload|toggle>
+    permission: apblame.use
+
+permissions:
+  apblame.use:
+    description: Allows using APBlame commands
+    default: true
+  apblame.reload:
+    description: Allows reloading the configuration
+    default: op
+  apblame.toggle:
+    description: Allows toggling blame messages for yourself
+    default: true
+  apblame.immune:
+    description: Makes the player immune (will never be blamed)
+    default: false

@@ -1,0 +1,18 @@
+# APBlame - Messages
+# Supports & color codes and PlaceholderAPI placeholders
+
+prefix: "&8[&cAPBlame&8] &r"
+
+reload:
+  success: "&aConfiguration reloaded successfully!"
+  no-permission: "&cYou don't have permission to do this."
+
+toggle:
+  enabled: "&aBlame messages enabled!"
+  disabled: "&cBlame messages disabled."
+  no-permission: "&cYou don't have permission to do this."
+
+command:
+  usage: "&eUsage: /apblame <reload|toggle>"
+  unknown: "&cUnknown subcommand."
+  player-only: "&cThis command can only be used by players."

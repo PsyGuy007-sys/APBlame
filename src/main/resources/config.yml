@@ -1,0 +1,57 @@
+# APBlame - Configuration
+# Plugin that randomly blames a nearby player when certain events occur
+
+# Trigger chances (in %) per event (min 5, max 20)
+chances:
+  block-break: 10
+  block-place: 10
+  mob-kill: 10
+  death: 15
+  craft: 8
+
+# Detection radius for nearby players (in blocks)
+radius: 30
+
+# Cooldown between two messages for the same player (in seconds)
+cooldown: 5
+
+# Messages per category
+# Available placeholders:
+#   {player} = the blamed player (a random nearby player)
+#   {victim} = the player who triggered the event
+#
+# PlaceholderAPI support: if PlaceholderAPI is installed, you can use
+# any PAPI placeholder in the messages below.
+# Examples: %player_displayname%, %server_online%, %player_health%, etc.
+# PAPI placeholders are resolved for the player receiving the message (the trigger).
+messages:
+  block-break:
+    - "§c✦ §eOn dirait que c'est §c{player} §equi a encore cassé ton bloc en douce !"
+    - "§c✦ §6{player} §ea été vu en train de saboter tes constructions..."
+    - "§c✦ §eAttention ! §a{player} §ea juré qu'il n'avait rien fait... méfie-toi."
+    - "§c✦ §d{player} §emurmure dans ton dos : « C'est pas moi, c'est {victim} ! »"
+    - "§c✦ §eTes blocs disparaissent ? §b{player} §eétait dans le coin, je dis ça je dis rien..."
+  block-place:
+    - "§c✦ §e{player} §6trouve que ton bloc est mal placé et compte bien le corriger..."
+    - "§c✦ §eInfo de dernière minute : §a{player} §eplanifie de recouvrir ta base de terre !"
+    - "§c✦ §d{player} §ea dit : « Qui construit aussi mal ? Ah oui, {victim}. »"
+    - "§c✦ §eTu poses un bloc ? §b{player} §eprépare déjà la TNT..."
+    - "§c✦ §6{player} §eest en train de noter tes coordonnées... ça sent le grief."
+  mob-kill:
+    - "§c✦ §e{player} §6prétend que ce mob était son animal de compagnie !"
+    - "§c✦ §eBreaking news : §a{player} §ea déposé une plainte pour cruauté envers les mobs !"
+    - "§c✦ §d{player} §echuchote : « Ce creeper était mon ami... tu vas payer. »"
+    - "§c✦ §eLa Société Protectrice des Mobs, présidée par §b{player}§e, condamne tes actes."
+    - "§c✦ §6{player} §eprépare une armée de vengeurs pour ce que tu viens de faire..."
+  death:
+    - "§c✦ §eSources fiables : §6{player} §ea piégé le chemin où tu es mort !"
+    - "§c✦ §e{player} §aest en train de looter ton stuff en ce moment même !"
+    - "§c✦ §dUn témoin anonyme accuse §b{player} §dd'avoir orchestré ta mort."
+    - "§c✦ §eDernières nouvelles : §6{player} §ecélèbre ta mort avec un gâteau !"
+    - "§c✦ §a{player} §evient d'écrire « RIP {victim} » sur un panneau. Quel culot."
+  craft:
+    - "§c✦ §eAttention ! §6{player} §ea prévu de te voler ce que tu viens de craft !"
+    - "§c✦ §d{player} §eregarde ta table de craft avec envie... protège tes items !"
+    - "§c✦ §eSelon nos informations, §a{player} §ecompte reproduire ton craft en mieux."
+    - "§c✦ §b{player} §ea dit : « Pourquoi {victim} craft ça ? Il sait même pas s'en servir. »"
+    - "§c✦ §6{player} §eprépare un casse pour récupérer ton craft tout frais..."
